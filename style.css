@@ -1,141 +1,65 @@
-/* Base Styles */
+(function (window) {
+// *******************************
+// START HERE IF YOU WANT A MORE CHALLENGING STARTING POINT FOR THIS ASSIGNMENT
+// *******************************
+//
+// Module 4 Assignment Instructions.
+//
+// The idea of this assignment is to take an existing array of names
+// and then output either Hello 'Name' or Good Bye 'Name' to the console.
+// The program should say "Hello" to any name except names that start with a "J"
+// or "j", otherwise, the program should say "Good Bye". So, the final output
+// on the console should look like this:
+/*
+Hello Yaakov
+Good Bye John
+Good Bye Jen
+Good Bye Jason
+Hello Paul
+Hello Frank
+Hello Larry
+Hello Paula
+Hello Laura
+Good Bye Jim
+WARNING!!! WARNING!!!
+The code does NOT currently work! It is YOUR job to make it work
+as described in the requirements and the steps in order to complete this
+assignment.
+WARNING!!! WARNING!!!
+*/
 
-* {
-  box-sizing: border-box;
-}
+// STEP 1:
+// Wrap the entire contents of script.js inside of an IIFE
+// See Lecture 52, part 2
+// (Note, Step 2 will be done in the SpeakHello.js file.)
 
-h1 {
-  font-family: Brushstroke, fantasy;
-  color: #000000;
-}
+var names = ["Yaakov", "John", "Jen", "Jason", "Paul", "Frank", "Larry", "Paula", "Laura", "Jim"];
 
-body {
-  background-image: url("background.jpg");
-  background-color: #FEF5CA;
+// STEP 10:
+// Loop over the names array and say either 'Hello' or "Good Bye"
+// using the 'speak' method or either helloSpeaker's or byeSpeaker's
+// 'speak' method.
+// See Lecture 50, part 1
+for (var i in names) {
 
-}
+  // STEP 11:
+  // Retrieve the first letter of the current name in the loop.
+  // Use the string object's 'charAt' function. Since we are looking for
+  // names that start with either upper case or lower case 'J'/'j', call
+  // string object's 'toLowerCase' method on the result so we can compare
+  // to lower case character 'j' afterwards.
+  // Look up these methods on Mozilla Developer Network web site if needed.
+  var firstLetter = ((names[i]).charAt(0)).toLowerCase();
 
-p {
-  padding: 10px;
-  margin: 0;
+  // STEP 12:
+  // Compare the 'firstLetter' retrieved in STEP 11 to lower case
+  // 'j'. If the same, call byeSpeaker's 'speak' method with the current name
+  // in the loop. Otherwise, call helloSpeaker's 'speak' method with the current
+  // name in the loop.
+  if (firstLetter == 'j') {
+     window.byeSpeaker.speak(names[i]);
+  } else {
+     window.helloSpeaker.speak(names[i]);
+  }
 }
-
-.container {
-  border: none;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  padding: 10px;
-}
-
-section {
-  border: 1px solid black;
-  background-color: #00FF99;
-  width: 100%;
-  height: auto;
-  font-family: Helvetica;
-  color: black;
-  position: relative;
-  overflow: auto;
-}
-
-#chicken {
-  border: 1px solid black;
-  text-align: center;
-  width: 30%;
-  margin-left: 70%;
-  font-family: Georgia,sans-serif;
-  font-weight: bold;
-  font-size: 125%;
-  margin-bottom: 0;
-  margin-top: 0;
-  padding: 5px;
-  background-color: #FFFF00;
-}
-
-#beef {
-  border: 1px solid black;
-  text-align: center;
-  width: 30%;
-  margin-left: 70%;
-  font-family: Georgia,sans-serif;
-  font-weight: bold;
-  font-size: 125%;
-  margin-bottom: 0;
-  margin-top: 0;
-  padding: 5px;
-  background-color: #FF1439;
-}
-
-#sushi {
-  border: 1px solid black;
-  text-align: center;
-  width: 30%;
-  margin-left: 70%;
-  font-family: Georgia,sans-serif;
-  font-weight: bold;
-  font-size: 125%;
-  margin-bottom: 0;
-  margin-top: 0;
-  background-color: #6495ED;
-  color: white;
-  padding: 5px;
-}
-
-#chicken-div {
-  margin-bottom: 10px;
-  margin-top: 10px;
-}
-
-#beef-div {
-  margin-bottom: 10px;
-  margin-top: 10px;
-}
-
-#sushi-div {
-  margin-bottom: 10px;
-  margin-top: 10px;
-}
-
-.navbar-brand {
-  font-size: 2em;
-  border: 0 0 10px 10px;
-  color: #FFFFFF;
-}
-
-#header-nav {
-  border: 0;
-  background-color: #FC5F06;
-  color: #FFFFFF;
-}
-
-.navbar-header button.navbar-toggle, .navbar-header .icon-bar {
-  border: 1px solid #61122f;
-}
-.navbar-header button.navbar-toggle {
-  clear: both;
-  margin-top: -30px;
-}
-
-.nav-header {
-  background-color: #FFFFFF;
-}
-
-.nav-brand {
-  color: #FFFFFF;
-  font-size: 1.5em;
-}
-
-#nav-list {
-  color: white;
-}
-
-hr {
-  border-color: white;
-}
-
-.item {
-  color: white;
-  font-size: 1.2em;
-}
+})(window);
